@@ -83,7 +83,7 @@ const Player = () => {
 		} else {
 			gradient.pause();
 		}
-	}, []);
+	});
 
 	useEffect(() => {
 		const root = document.documentElement;
