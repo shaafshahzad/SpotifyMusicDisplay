@@ -788,7 +788,7 @@ class Gradient {
 						value: -0.5,
 					}),
 					noiseFreq: new this.minigl.Uniform({
-						value: [3, 4],
+						value: [1, 2],
 						type: "vec2",
 					}),
 					noiseAmp: new this.minigl.Uniform({
