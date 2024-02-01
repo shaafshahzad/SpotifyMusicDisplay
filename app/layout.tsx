@@ -15,7 +15,11 @@ export default function RootLayout({
 }) {
 	return (
 		<html className="h-full" lang="en" suppressHydrationWarning>
-			<body className={`${inter.className} h-full`}>{children}</body>
+			<body
+				className={`${inter.className} h-full flex justify-center items-center`}
+			>
+				{children}
+			</body>
 		</html>
 	);
 }

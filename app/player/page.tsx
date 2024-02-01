@@ -25,6 +25,7 @@ const Player = () => {
 		title: "",
 	});
 	const [colors, setColors] = useState<string[]>([]);
+	const [orientation, setOrientation] = useState("portrait");
 	const gradient: any = new Gradient();
 
 	useEffect(() => {
@@ -124,6 +125,24 @@ const Player = () => {
 		}
 	}, [colors]);
 
+	useEffect(() => {
+		const checkOrientation = () => {
+			// Update the state based on window dimensions
+			if (window.innerWidth > window.innerHeight) {
+				setOrientation("landscape");
+			} else {
+				setOrientation("portrait");
+			}
+		};
+
+		// Check orientation on mount and add listeners for resize events
+		checkOrientation();
+		window.addEventListener("resize", checkOrientation);
+
+		// Cleanup listener on component unmount
+		return () => window.removeEventListener("resize", checkOrientation);
+	}, []);
+
 	return (
 		<>
 			<canvas
@@ -134,10 +153,23 @@ const Player = () => {
 			<div className="w-full h-full flex flex-col justify-center items-center fixed top-0.5">
 				{nowPlaying.isPlaying ? (
 					<>
-						<img src={nowPlaying.albumImageUrl} alt="Album Art" />
-						<h3>{nowPlaying.title}</h3>
-						<p>{nowPlaying.artist}</p>
-						<p>{nowPlaying.album}</p>
+						<img
+							src={nowPlaying.albumImageUrl}
+							alt="Album Art"
+							className={`mb-6 rounded-xl shadow-2xl aspect-square ${
+								orientation === "landscape"
+									? "w-[30%]"
+									: "h-[30%]"
+							}`}
+						/>
+						<div className="w-full flex flex-col items-center text-3xl">
+							<p className=" text-white font-semibold ">
+								{nowPlaying.title}
+							</p>
+							<p className="text-[#949393] text-opacity-50 font-medium">
+								{nowPlaying.artist} - {nowPlaying.album}
+							</p>
+						</div>
 					</>
 				) : (
 					<p>Nothing Playing</p>
