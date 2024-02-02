@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect } from "react";
-import AlbumCover from "@/components/albumCover";
 import { useFetchNowPlaying } from "@/lib/hooks/useFetchNowPlaying";
 import { useGradient } from "@/lib/hooks/useGradient";
 import { updateGradient } from "@/lib/utils/updateCssVariables";
+import AlbumCover from "@/components/albumCover";
 import AlbumInfo from "@/components/albumInfo";
 import PlaybackBar from "@/components/playbackBar";
 
