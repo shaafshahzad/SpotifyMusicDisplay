@@ -28,7 +28,11 @@ const Player = () => {
 					<>
 						<AlbumCover imageUrl={nowPlaying.albumImageUrl} />
 						<div className="w-full flex flex-col items-center text-3xl">
-							<PlaybackBar progress={progress} />
+							<PlaybackBar
+								progress={progress}
+								elapsed={nowPlaying.progress}
+								duration={nowPlaying.duration}
+							/>
 							<AlbumInfo
 								title={nowPlaying.title}
 								artist={nowPlaying.artist}
