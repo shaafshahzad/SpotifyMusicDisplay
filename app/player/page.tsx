@@ -13,6 +13,8 @@ type NowPlayingSong = {
 	isPlaying: boolean;
 	songUrl: string;
 	title: string;
+	progress: number;
+	duration: number;
 };
 
 const Player = () => {
@@ -23,9 +25,12 @@ const Player = () => {
 		isPlaying: false,
 		songUrl: "",
 		title: "",
+		progress: 0,
+		duration: 0,
 	});
 	const [colors, setColors] = useState<string[]>([]);
 	const [orientation, setOrientation] = useState("portrait");
+	const [progress, setProgress] = useState(0);
 	const gradient: any = new Gradient();
 
 	useEffect(() => {
@@ -42,8 +47,18 @@ const Player = () => {
 						isPlaying: response.is_playing,
 						songUrl: response.item.external_urls.spotify,
 						title: response.item.name,
+						progress: response.progress_ms,
+						duration: response.item.duration_ms,
 					};
 					setNowPlaying(nowPlayingData);
+
+					if (nowPlayingData.progress && nowPlayingData.duration) {
+						const newProgress =
+							(nowPlayingData.progress /
+								nowPlayingData.duration) *
+							100;
+						setProgress(newProgress);
+					}
 
 					if (nowPlayingData.albumImageUrl) {
 						getColors(nowPlayingData.albumImageUrl)
@@ -127,7 +142,6 @@ const Player = () => {
 
 	useEffect(() => {
 		const checkOrientation = () => {
-			// Update the state based on window dimensions
 			if (window.innerWidth > window.innerHeight) {
 				setOrientation("landscape");
 			} else {
@@ -135,11 +149,9 @@ const Player = () => {
 			}
 		};
 
-		// Check orientation on mount and add listeners for resize events
 		checkOrientation();
 		window.addEventListener("resize", checkOrientation);
 
-		// Cleanup listener on component unmount
 		return () => window.removeEventListener("resize", checkOrientation);
 	}, []);
 
@@ -163,10 +175,17 @@ const Player = () => {
 							}`}
 						/>
 						<div className="w-full flex flex-col items-center text-3xl">
+							<div className="w-[30%] bg-gray-500 rounded-full h-1.5 mb-4">
+								<div
+									className="bg-gray-100 h-1.5 rounded-full"
+									style={{ width: `${progress}%` }}
+								></div>
+							</div>
+
 							<p className=" text-white font-semibold ">
 								{nowPlaying.title}
 							</p>
-							<p className="text-[#949393] text-opacity-50 font-medium">
+							<p className="text-white text-center text-opacity-50 font-medium">
 								{nowPlaying.artist} - {nowPlaying.album}
 							</p>
 						</div>

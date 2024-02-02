@@ -14,7 +14,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html className="h-full" lang="en" suppressHydrationWarning>
+		<html
+			className="h-full overflow-hidden"
+			lang="en"
+			suppressHydrationWarning
+		>
 			<body
 				className={`${inter.className} h-full flex justify-center items-center`}
 			>
