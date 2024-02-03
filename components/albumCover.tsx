@@ -1,5 +1,6 @@
 import React from "react";
 import { useOrientation } from "@/lib/hooks/useOrientation";
+import Image from "next/image";
 
 interface AlbumCoverProps {
 	imageUrl: string;
@@ -13,7 +14,7 @@ const AlbumCover = ({ imageUrl, isPlaying }: AlbumCoverProps) => {
 		: "transition-transform duration-500 ease-in-out scale-[0.8]";
 
 	return (
-		<img
+		<Image
 			width={300}
 			height={300}
 			src={imageUrl}

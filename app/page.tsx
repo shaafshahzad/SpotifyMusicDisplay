@@ -25,7 +25,7 @@ const Landing = () => {
 				<div className="w-[55%] text-[#141414] space-y-8">
 					<div className="flex items-center text-xs font-bold">
 						<p className="border border-gray-300 rounded-full px-4 py-2">
-							What's new
+							{"What's new "}
 						</p>
 						<p className="font-semibold flex items-center px-4 py-2">
 							Launched v1.0 <ChevronRight size={18} />
