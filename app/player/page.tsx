@@ -9,7 +9,8 @@ import AlbumInfo from "@/components/albumInfo";
 import PlaybackBar from "@/components/playbackBar";
 
 const Player = () => {
-	const { nowPlaying, progress, colors } = useFetchNowPlaying();
+	const { nowPlaying, progress, colors, status } = useFetchNowPlaying();
+
 	useGradient("gradient-canvas", colors);
 
 	useEffect(() => {
@@ -24,14 +25,18 @@ const Player = () => {
 				data-transition-in
 			/>
 			<div className="w-full h-full flex flex-col justify-center items-center fixed top-0.5">
-				{nowPlaying.isPlaying ? (
+				{status === "playing" ? (
 					<>
-						<AlbumCover imageUrl={nowPlaying.albumImageUrl} />
-						<div className="w-full flex flex-col items-center text-3xl">
+						<AlbumCover
+							imageUrl={nowPlaying.albumImageUrl}
+							isPlaying={nowPlaying.isPlaying}
+						/>
+						<div className="w-full flex flex-col items-center text-xl">
 							<PlaybackBar
 								progress={progress}
 								elapsed={nowPlaying.progress}
 								duration={nowPlaying.duration}
+								isPlaying={nowPlaying.isPlaying}
 							/>
 							<AlbumInfo
 								title={nowPlaying.title}
@@ -41,7 +46,12 @@ const Player = () => {
 						</div>
 					</>
 				) : (
-					<p>Nothing Playing</p>
+					<div className="flex flex-col items-center gap-2 text-white">
+						<p className="text-4xl">No music is playing</p>
+						<p className="text-xl">
+							Start playing music on your Spotify account
+						</p>
+					</div>
 				)}
 			</div>
 		</>

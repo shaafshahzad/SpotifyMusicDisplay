@@ -12,3 +12,23 @@
 	width: 400px;
 	height: 8px;
 }
+
+.landing-bg {
+	background-color: hsla(0, 0%, 100%, 1);
+	background-image: radial-gradient(
+			at 85% 21%,
+			hsla(104, 100%, 96%, 1) 0px,
+			transparent 50%
+		),
+		radial-gradient(
+			at 25% 16%,
+			hsla(189, 100%, 93%, 1) 0px,
+			transparent 50%
+		),
+		radial-gradient(at 13% 42%, hsla(6, 100%, 90%, 1) 0px, transparent 50%),
+		radial-gradient(
+			at 84% 81%,
+			hsla(287, 100%, 96%, 1) 0px,
+			transparent 50%
+		);
+}

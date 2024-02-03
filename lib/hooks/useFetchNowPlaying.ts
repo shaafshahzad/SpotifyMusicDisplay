@@ -16,11 +16,22 @@ export const useFetchNowPlaying = () => {
     });
     const [colors, setColors] = useState<string[]>([]);
     const [progress, setProgress] = useState(0);
+    const [status, setStatus] = useState('stopped');
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await getNowPlaying();
+
+                console.log("raw response", response)
+
+                if (!response || !response.item) {
+                    setStatus('stopped');
+                    return;
+                }
+
+                setStatus('playing');
+
                 if (response && response.item) {
                     const nowPlayingData = {
                         album: response.item.album.name,
@@ -57,6 +68,13 @@ export const useFetchNowPlaying = () => {
                 }
             } catch (error) {
                 console.error("Error fetching now playing:", error);
+                setColors([
+                    "#247BA0",
+                    "#09BC8A",
+                    "#EF767A",
+                    "#523249",
+                ])
+                setStatus('stopped');
             }
         };
 
@@ -66,5 +84,5 @@ export const useFetchNowPlaying = () => {
         return () => clearInterval(pollingInterval);
     }, []);
 
-    return { nowPlaying, progress, colors };
+    return { nowPlaying, progress, colors, status };
 };
