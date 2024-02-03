@@ -4,6 +4,7 @@ import React from "react";
 import Navbar from "@/components/navbar";
 import { useRouter } from "next/navigation";
 import { ArrowRightIcon, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const Landing = () => {
 	const router = useRouter();
@@ -47,7 +48,13 @@ const Landing = () => {
 							className="bg-green-500 font-semibold text-white px-4 py-2 mt-4 rounded-md flex justify-center items-center gap-1"
 						>
 							Authenticate
-							<img src="/spotifylogo.png" className="w-8" />
+							<Image
+								width={300}
+								height={300}
+								alt="Spotify Logo"
+								src="/spotifylogo.png"
+								className="w-8"
+							/>
 						</button>
 						<button
 							onClick={handleRedirect}
@@ -58,9 +65,11 @@ const Landing = () => {
 					</div>
 				</div>
 				<div className="w-[60%] aspect-video fixed -right-[250px]">
-					<img
+					<Image
+						width={800}
+						height={500}
 						src="/landing-preview.png"
-						alt="landing-illustration"
+						alt="Preview Image of Service"
 						className="rounded-xl shadow-2xl"
 					/>
 				</div>

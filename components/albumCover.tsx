@@ -14,6 +14,8 @@ const AlbumCover = ({ imageUrl, isPlaying }: AlbumCoverProps) => {
 
 	return (
 		<img
+			width={300}
+			height={300}
 			src={imageUrl}
 			alt="Album Art"
 			className={`mb-6 rounded-xl shadow-2xl aspect-square ${animationClass} ${
