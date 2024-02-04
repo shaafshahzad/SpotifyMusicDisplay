@@ -14,9 +14,7 @@ const AlbumCover = ({ imageUrl, isPlaying }: AlbumCoverProps) => {
 		: "transition-transform duration-500 ease-in-out scale-[0.8]";
 
 	return (
-		<Image
-			width={300}
-			height={300}
+		<img
 			src={imageUrl}
 			alt="Album Art"
 			className={`mb-6 rounded-xl shadow-2xl aspect-square ${animationClass} ${

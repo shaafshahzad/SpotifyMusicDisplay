@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import { useRouter } from "next/navigation";
 import { ArrowRightIcon, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Landing = () => {
 	const router = useRouter();
@@ -65,9 +66,7 @@ const Landing = () => {
 					</div>
 				</div>
 				<div className="w-[60%] aspect-video fixed -right-[250px]">
-					<Image
-						width={800}
-						height={500}
+					<img
 						src="/landing-preview.png"
 						alt="Preview Image of Service"
 						className="rounded-xl shadow-2xl"
