@@ -23,7 +23,7 @@ const Landing = () => {
 		<main className="w-full h-full landing-bg flex flex-col items-center">
 			<Navbar handleLogin={handleLogin} />
 			<div className="h-full w-full items-center p-12 flex">
-				<div className="w-[55%] text-[#141414] space-y-8">
+				<div className="w-[45%] text-[#141414] space-y-8">
 					<div className="flex items-center text-xs font-bold">
 						<p className="border border-gray-300 rounded-full px-4 py-2">
 							{"What's new "}
