@@ -9,8 +9,8 @@ interface AlbumInfoProps {
 const AlbumInfo = ({ title, artist, album }: AlbumInfoProps) => {
 	return (
 		<>
-			<p className=" text-white font-semibold">{title}</p>
-			<p className="text-white text-center text-opacity-50 font-medium">
+			<p className=" text-white font-semibold text-sm sm:text-xl">{title}</p>
+			<p className="text-white text-center text-opacity-50 font-medium text-sm sm:text-xl">
 				{artist} - {album}
 			</p>
 		</>
