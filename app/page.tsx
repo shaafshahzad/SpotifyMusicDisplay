@@ -5,7 +5,6 @@ import Navbar from "@/components/navbar";
 import { useRouter } from "next/navigation";
 import { ArrowRightIcon, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 const Landing = () => {
 	const router = useRouter();

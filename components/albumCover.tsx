@@ -14,12 +14,14 @@ const AlbumCover = ({ imageUrl, isPlaying }: AlbumCoverProps) => {
 		: "transition-transform duration-500 ease-in-out scale-[0.8]";
 
 	return (
-		<img
+		<Image
 			src={imageUrl}
 			alt="Album Art"
 			className={`mb-6 rounded-xl shadow-2xl aspect-square ${animationClass} ${
 				orientation === "landscape" ? "w-[30%]" : "h-[30%]"
 			}`}
+			width={1500}
+			height={1500}
 		/>
 	);
 };
