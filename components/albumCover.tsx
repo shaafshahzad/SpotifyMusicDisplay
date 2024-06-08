@@ -20,8 +20,9 @@ const AlbumCover = ({ imageUrl, isPlaying }: AlbumCoverProps) => {
 			className={`mb-6 rounded-xl shadow-2xl aspect-square ${animationClass} ${
 				orientation === "landscape" ? "w-[30%]" : "h-[30%]"
 			}`}
-			width={1500}
-			height={1500}
+			width={3000}
+			height={3000}
+			quality={100}
 		/>
 	);
 };

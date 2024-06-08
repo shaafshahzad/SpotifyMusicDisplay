@@ -15,6 +15,7 @@ const Player = () => {
 
 	useEffect(() => {
 		updateGradient(colors);
+		console.log(nowPlaying);
 	}, [colors]);
 
 	return (
