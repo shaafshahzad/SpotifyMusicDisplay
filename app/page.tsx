@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "@/components/navbar";
 import { useRouter } from "next/navigation";
 import { ArrowRightIcon, ChevronRight } from "lucide-react";
@@ -29,12 +29,24 @@ const shuffleArray = (
 
 const Landing = () => {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const images1 = shuffleArray([...images]);
-  const images2 = shuffleArray([...images]);
+  const shuffledImages = shuffleArray([...images]);
+  const images1 = shuffledImages.slice(
+    0,
+    Math.floor(shuffledImages.length / 2)
+  );
+  const images2 = shuffledImages.slice(Math.floor(shuffledImages.length / 2));
 
   const handleLogin = async () => {
-    router.push("/api/auth");
+    try {
+      setIsLoading(true);
+      router.push("/api/auth");
+    } catch (error) {
+      console.error("Authentication error:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleRedirect = () => {
@@ -69,8 +81,9 @@ const Landing = () => {
             <button
               onClick={handleLogin}
               className="bg-green-500 font-semibold text-white px-4 py-2 mt-4 rounded-md flex justify-center items-center gap-1"
+              disabled={isLoading}
             >
-              Authenticate
+              {isLoading ? "Authenticating..." : "Authenticate"}
               <Image
                 width={300}
                 height={300}
