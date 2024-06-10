@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "@/components/navbar";
 import { useRouter } from "next/navigation";
 import { ArrowRightIcon, ChevronRight } from "lucide-react";
@@ -30,8 +30,14 @@ const shuffleArray = (
 const Landing = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const [shuffledImages, setShuffledImages] = useState(
+    shuffleArray([...images])
+  );
 
-  const shuffledImages = shuffleArray([...images]);
+  useEffect(() => {
+    setShuffledImages(shuffleArray([...images]));
+  }, []);
+
   const images1 = shuffledImages.slice(
     0,
     Math.floor(shuffledImages.length / 2)
