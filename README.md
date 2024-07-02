@@ -1,7 +1,8 @@
 # SpotifyMusicDisplay
 
 <div align="center">
-    <img src="<!-- Image URL -->" alt="Spotify Music Display Overview" width="1000"/>
+    <img src="https://github.com/shaafshahzad/SpotifyMusicDisplay/blob/main/public/landing.png?raw=true" alt="DeepEnd example timeline" width="1000"/>
+    <img src="https://github.com/shaafshahzad/SpotifyMusicDisplay/blob/main/public/preview.png?raw=true" alt="DeepEnd example timeline" width="1000"/>
 </div>
 
 ## Introduction
