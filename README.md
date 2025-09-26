@@ -50,11 +50,11 @@ Future enhancements include using a less intensive WebGL background and addition
 4. **Environment Variables**:
    Create a `.env.local` file in the root directory with your Spotify API credentials.
    ```dotenv
-   SPOTIFY_CLIENT_ID=your_spotify_client_id
-   SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
-   SPOTIFY_REDIRECT_URI=your_spotify_redirect_uri
-   SPOTIFY_REFRESH_TOKEN=your_spotify_refresh_token
-   SPOTIFY_ACCESS_TOKEN=your_spotify_access_token
+   NEXT_PUBLIC_SPOTIFY_CLIENT_ID=your_spotify_client_id
+   NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
+   NEXT_PUBLIC_SPOTIFY_REDIRECT_URI=your_spotify_redirect_uri
+   NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN=your_spotify_refresh_token
+   NEXT_PUBLIC_SPOTIFY_ACCESS_TOKEN=your_spotify_access_token
    ```
 5. **Start the local development server**:
    ```bash
